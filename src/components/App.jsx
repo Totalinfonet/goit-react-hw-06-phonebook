@@ -7,7 +7,7 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#f2f1f1',
+        color: '#efd0d0',
         backgroundColor: 'indigo',
       }}
     >
