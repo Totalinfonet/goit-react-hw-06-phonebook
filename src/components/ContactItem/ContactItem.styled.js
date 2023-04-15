@@ -10,7 +10,7 @@ export const Li = styled.li`
 
 export const DeleteButton = styled.button`
   border: none;
-  background-color: #ff6b6b;
+  background-color: blueviolet;
   color: #fff;
   padding: 8px;
   border-radius: 4px;
