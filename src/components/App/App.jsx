@@ -7,6 +7,7 @@ import { ContactForm } from '../ContactForm/ContactForm';
 import { Filter } from '../Filter/Filter';
 import { ContactList } from '../ContactList/ContactList';
 import { AppWrapper, Title } from './App.styled';
+import { useMemo } from 'react';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,9 +35,11 @@ export const App = () => {
     dispatch(setFilter(value));
   };
 
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const filteredContacts = useMemo(() => {
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }, [contacts, filter]);
 
   return (
     <AppWrapper>
