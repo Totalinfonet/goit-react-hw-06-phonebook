@@ -100,6 +100,13 @@ export const App = () => {
   const filter = useSelector(state => state.filter);
 
   const handleAddContact = (name, number) => {
+    const existingContact = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+    if (existingContact) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
     const id = nanoid();
     dispatch(addContact({ id, name, number }));
   };
