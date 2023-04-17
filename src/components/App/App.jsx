@@ -58,7 +58,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../redux/contacts';
-import { setFilter } from '../../redux/filter';
+// import { setFilter } from '../../redux/filter';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { Filter } from '../Filter/Filter';
 import { ContactList } from '../ContactList/ContactList';
@@ -74,11 +74,6 @@ export const App = () => {
     dispatch(deleteContact(id));
   };
 
-  const handleFilterChange = e => {
-    const { value } = e.target;
-    dispatch(setFilter(value));
-  };
-
   const filteredContacts = useMemo(() => {
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -90,7 +85,7 @@ export const App = () => {
       <Title>Phonebook</Title>
       <ContactForm />
       <Title>Contacts</Title>
-      <Filter filter={filter} onChange={handleFilterChange} />
+      <Filter />
       <ContactList
         contacts={filteredContacts}
         onDeleteContact={handleDeleteContact}
